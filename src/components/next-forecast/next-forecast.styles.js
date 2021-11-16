@@ -85,7 +85,8 @@ export const RightDiv = styled.div`
     &:first-child {
       width: 100%;
       height: 80%;
-      background-image: url(${Lagos});
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url(${Lagos});
       background-color: rgba(255, 255, 255, 0.05);
       border-radius: 20px 20px 0 0;
       position: relative;
