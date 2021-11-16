@@ -2,7 +2,6 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import styled from "styled-components";
 
-
 import CurrentLocation from "./pages/current-location/current-location.component";
 import CustomLocation from "./pages/custom-location/custom-location.component";
 

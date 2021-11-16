@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { useHistory } from "react-router-dom";
 
 import SearchIcon from "../../assets/images/searchIcon.svg";
@@ -12,10 +12,6 @@ import {
 } from "./searchbar.styles";
 
 const SearchBar = ({ isLink, disabled, location, onFormSubmit, isLoading }) => {
-  useEffect(() => {
-    console.log(isLoading);
-  }, [isLoading]);
-
   const history = useHistory();
 
   const inputRef = useRef();

@@ -18,28 +18,34 @@ const CustomLocation = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-      try {
-        const { data } = await axios.get("http://ip-api.com/json/");
-        setLocation(`${data.city}, ${data.country}`);
+    setIsLoading(true);
+    const locationWatchId = navigator.geolocation.watchPosition(function (
+      position
+    ) {
+      const fetchData = async () => {
+        try {
+          const { data: currentWeather } = await axios.get(
+            `${BASE_URL}onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=${API_KEY}`
+          );
 
-        const { data: currentWeather } = await axios.get(
-          `${BASE_URL}onecall?lat=${data.lat}&lon=${data.lon}&units=metric&appid=${API_KEY}`
-        );
+          setLocation(currentWeather.timezone.split("/")[1]);
+          setCurrentWeatherData({
+            weather: currentWeather.current.weather[0],
+            temperature: currentWeather.current.temp,
+          });
+          setIsLoading(false);
+        } catch (e) {
+          alert("An error occurred");
+          setIsLoading(false);
+        }
+      };
 
-        setCurrentWeatherData({
-          weather: currentWeather.current.weather[0],
-          temperature: currentWeather.current.temp,
-        });
-        setIsLoading(false);
-      } catch (e) {
-        alert("An error occurred");
-        setIsLoading(false);
-      }
+      fetchData();
+    });
+
+    return () => {
+      navigator.geolocation.clearWatch(locationWatchId);
     };
-
-    fetchData();
   }, []);
 
   const onFormSubmit = async value => {
