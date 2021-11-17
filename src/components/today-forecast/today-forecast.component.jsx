@@ -1,6 +1,6 @@
 import React from "react";
-import Loader from "../loader/loader.component";
 
+import Loader from "../loader/loader.component";
 import {
   TodayForecastContainer,
   Title,
@@ -9,6 +9,7 @@ import {
   Div,
   Image,
 } from "./today-forecast.styles";
+import { formatTime } from "../../utility-functions/format-time";
 
 const TodayForecast = ({ currentWeatherData, isLoading }) => {
   let hourlyData = [];
@@ -26,12 +27,7 @@ const TodayForecast = ({ currentWeatherData, isLoading }) => {
         {currentWeatherData && (
           <>
             {hourlyData.map((data, i) => {
-              const time = new Date(data.dt * 1000)
-                .toLocaleTimeString("en-US", {
-                  hour: "2-digit",
-                  minute: "2-digit",
-                })
-                .toLowerCase();
+              let time = formatTime(new Date(data.dt * 1000));
 
               return (
                 <HourlyForecast key={i}>

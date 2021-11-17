@@ -8,6 +8,7 @@ import {
   TemperatureContainer,
   Location,
 } from "./custom-weather.styles";
+import { formatTime } from "../../utility-functions/format-time";
 
 const CustomWeather = ({ location, currentWeatherData, isLoading }) => {
   // Parsing the current date
@@ -23,12 +24,7 @@ const CustomWeather = ({ location, currentWeatherData, isLoading }) => {
     .format(today)
     .slice(0, 3)}`;
 
-  const time = today
-    .toLocaleTimeString("en-US", {
-      hour: "2-digit",
-      minute: "2-digit",
-    })
-    .toLowerCase();
+  const time = formatTime(today);
 
   const renderOutput = () => {
     if (!currentWeatherData) return null;
@@ -62,7 +58,11 @@ const CustomWeather = ({ location, currentWeatherData, isLoading }) => {
 
   return (
     <CustomWeatherContainer>
-      {isLoading ? <Loader color="rgba(255, 255, 255, 0.2)" height="200px" />: renderOutput()}
+      {isLoading ? (
+        <Loader color="rgba(255, 255, 255, 0.2)" height="200px" />
+      ) : (
+        renderOutput()
+      )}
     </CustomWeatherContainer>
   );
 };
