@@ -15,7 +15,7 @@ const App = () => {
   return (
     <AppContainer>
       <Switch>
-        <Route path="/page2" component={CustomLocation} />
+        <Route path="/custom-weather" component={CustomLocation} />
         <Route path="/" component={CurrentLocation} />
       </Switch>
     </AppContainer>

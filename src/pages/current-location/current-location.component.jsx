@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
+
 import NextForecast from "../../components/next-forecast/next-forecast.component";
 import SearchBar from "../../components/searchbar/searchbar.component";
 import TodayForecast from "../../components/today-forecast/today-forecast.component";
-import axios from "axios";
 import { BASE_URL, API_KEY } from "../../config.json";
 import { CurrentLocationContainer } from "./current-location.styles";
 
@@ -13,6 +14,7 @@ const CurrentLocation = () => {
 
   useEffect(() => {
     setIsLoading(true);
+    // Using the Geolocation API to get current location
     const locationWatchId = navigator.geolocation.watchPosition(function (
       position
     ) {
@@ -34,6 +36,7 @@ const CurrentLocation = () => {
       fetchData();
     });
 
+    // Cleaning up the subscription to the Geolocation API call
     return () => {
       navigator.geolocation.clearWatch(locationWatchId);
     };

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
+
 import SearchBar from "../../components/searchbar/searchbar.component";
 import CustomWeather from "../../components/custom-weather/custom-weather.component";
 import ArrowIcon from "../../assets/images/left-arrow-icon.svg";
 import { useHistory } from "react-router";
-import axios from "axios";
 import { BASE_URL, API_KEY } from "../../config.json";
 import {
   CustomLocationContainer,
@@ -19,6 +20,7 @@ const CustomLocation = () => {
 
   useEffect(() => {
     setIsLoading(true);
+    // Using the Geolocation API to get current location
     const locationWatchId = navigator.geolocation.watchPosition(function (
       position
     ) {
@@ -43,14 +45,21 @@ const CustomLocation = () => {
       fetchData();
     });
 
+    // Cleaning up the subscription to the Geolocation API call
     return () => {
       navigator.geolocation.clearWatch(locationWatchId);
     };
   }, []);
 
   const onFormSubmit = async value => {
+    if (!value) {
+      alert("Enter a location to search");
+      return;
+    }
+
     setIsLoading(true);
     try {
+      // Querying the openweathermap API with the search term
       const { data } = await axios.get(
         `${BASE_URL}weather?q=${value}&units=metric&appid=${API_KEY}`
       );

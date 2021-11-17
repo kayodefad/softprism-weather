@@ -19,20 +19,17 @@ const SearchBar = ({ isLink, disabled, location, onFormSubmit, isLoading }) => {
   const handleSubmit = e => {
     e.preventDefault();
     const inputText = inputRef.current.value;
-    if (!inputText) {
-      alert("Enter a search term");
-      return;
-    }
     onFormSubmit(inputText);
   };
 
   const handleButtonClick = e => {
     e.preventDefault();
-    history.push("/page2");
+    history.push("/custom-weather");
   };
 
   return (
     <SearchBarContainer>
+      {/* Only trigger submtting the form if it is not a link */}
       <Form onSubmit={isLink ? null : handleSubmit}>
         <InputContainer>
           <SearchIconImg src={SearchIcon} alt="Search Icon" />
@@ -44,6 +41,7 @@ const SearchBar = ({ isLink, disabled, location, onFormSubmit, isLoading }) => {
             placeholder="Check for the weather in a location"
           />
         </InputContainer>
+        {/* Rendering a different button based on weather it is a link or not */}
         {isLink ? (
           <Button onClick={handleButtonClick}>Search</Button>
         ) : (

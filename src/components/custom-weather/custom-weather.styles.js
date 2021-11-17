@@ -7,7 +7,7 @@ export const CustomWeatherContainer = styled.div`
   margin: auto;
   margin-top: 4rem;
   width: 90%;
-  max-width: 250px;
+  max-width: 280px;
   color: #ffffff;
   display: flex;
   flex-direction: column;
