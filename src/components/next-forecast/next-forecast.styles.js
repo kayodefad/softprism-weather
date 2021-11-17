@@ -5,7 +5,7 @@ const cityImage = "https://source.unsplash.com/500x250/?city"
 
 const ButtonStyle = css`
   background: #8862fc;
-  border-radius: ${props => props.hello + ""};
+  border-radius: 10px;
   font-size: 0.8rem;
   padding: 0.8rem 1.7rem;
 `;
