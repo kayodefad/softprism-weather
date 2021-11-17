@@ -35,6 +35,7 @@ export const Input = styled.input`
   height: 100%;
   padding: 0 55px 0 55px;
   transform: translateX(10px);
+  font-size: 0.9rem;
 
   &:focus {
     outline: none;

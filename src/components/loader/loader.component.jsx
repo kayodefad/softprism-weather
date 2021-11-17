@@ -19,9 +19,49 @@ const LoaderContainer = styled.div`
     width: 150px;
     background: ${props =>
       `linear-gradient(to right, transparent 0%, ${props.color} 50%, transparent 100%)`};
+    -webkit-animation: load 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    -moz-animation: load 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    -ms-animation: load 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    -o-animation: load 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     animation: load 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   }
 
+  @-webkit-keyframes load {
+    from {
+      left: -150px;
+    }
+    to {
+      left: 100%;
+    }
+  }
+
+  @-moz-keyframes load {
+    from {
+      left: -150px;
+    }
+    to {
+      left: 100%;
+    }
+  }
+
+  @-ms-keyframes load {
+    from {
+      left: -150px;
+    }
+    to {
+      left: 100%;
+    }
+  }
+
+  @-o-keyframes load {
+    from {
+      left: -150px;
+    }
+    to {
+      left: 100%;
+    }
+  }
+  
   @keyframes load {
     from {
       left: -150px;
