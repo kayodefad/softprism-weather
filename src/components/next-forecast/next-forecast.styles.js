@@ -1,5 +1,7 @@
 import styled, { css } from "styled-components";
-import Lagos from "../../assets/images/lagos.svg";
+// import Lagos from "../../assets/images/lagos.svg";
+
+const cityImage = "https://source.unsplash.com/500x250/?city"
 
 const ButtonStyle = css`
   background: #8862fc;
@@ -85,8 +87,8 @@ export const RightDiv = styled.div`
     &:first-child {
       width: 100%;
       height: 80%;
-      background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-        url(${Lagos});
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url(${cityImage});
       background-color: rgba(255, 255, 255, 0.05);
       border-radius: 20px 20px 0 0;
       position: relative;
