@@ -1,4 +1,4 @@
-# Create a config.json file in the src folder
+## Create a config.json file in the src folder
 
 ```
 {
