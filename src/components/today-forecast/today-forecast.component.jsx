@@ -19,7 +19,7 @@ const TodayForecast = ({ currentWeatherData, isLoading }) => {
 
   const renderOutput = () => {
     if (!currentWeatherData) return null;
-    
+
     return (
       <>
         {currentWeatherData && (
@@ -37,7 +37,7 @@ const TodayForecast = ({ currentWeatherData, isLoading }) => {
                   <Div>{Math.round(data.temp)}&deg;C</Div>
                   <Div>
                     <Image
-                      src={`http://openweathermap.org/img/w/${data.weather[0].icon}.png`}
+                      src={`https://openweathermap.org/img/w/${data.weather[0].icon}.png`}
                       alt="Weather Icon"
                     />
                   </Div>

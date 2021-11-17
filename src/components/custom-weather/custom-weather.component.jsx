@@ -31,12 +31,12 @@ const CustomWeather = ({ location, currentWeatherData, isLoading }) => {
 
   const renderOutput = () => {
     if (!currentWeatherData) return null;
-    
+
     return (
       <>
         <WeatherIconDay>
           <img
-            src={`http://openweathermap.org/img/w/${currentWeatherData.weather.icon}.png`}
+            src={`https://openweathermap.org/img/w/${currentWeatherData.weather.icon}.png`}
             alt="Weather Icon"
           />
           <div>

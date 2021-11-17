@@ -47,7 +47,7 @@ const NextForecast = ({ currentWeatherData, location, isLoading }) => {
               <div>
                 <span>{parsedDate}</span>
                 <img
-                  src={`http://openweathermap.org/img/w/${data.weather[0].icon}.png`}
+                  src={`https://openweathermap.org/img/w/${data.weather[0].icon}.png`}
                   alt="Weather Icon"
                 />
                 <span>{Math.round(data.temp.day)}&deg;C</span>
@@ -61,7 +61,7 @@ const NextForecast = ({ currentWeatherData, location, isLoading }) => {
 
   const renderRightOutput = () => {
     if (!currentWeatherData) return null;
-    
+
     return (
       <>
         <div>
@@ -73,7 +73,7 @@ const NextForecast = ({ currentWeatherData, location, isLoading }) => {
             {Math.round(currentWeatherData.current.temp)}&deg;
           </TemperatureDiv>
           <WeatherIcon
-            src={`http://openweathermap.org/img/w/${currentWeatherData.current.weather[0].icon}.png`}
+            src={`https://openweathermap.org/img/w/${currentWeatherData.current.weather[0].icon}.png`}
             alt="Weather Icon"
           />
         </div>
