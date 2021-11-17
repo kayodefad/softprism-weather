@@ -1,6 +1,7 @@
 import React from "react";
 
 import Dot from "../../assets/images/dot.svg";
+import Loader from "../loader/loader.component";
 import {
   CustomWeatherContainer,
   WeatherIconDay,
@@ -61,7 +62,7 @@ const CustomWeather = ({ location, currentWeatherData, isLoading }) => {
 
   return (
     <CustomWeatherContainer>
-      {isLoading ? <p>Loading...</p> : renderOutput()}
+      {isLoading ? <Loader color="rgba(255, 255, 255, 0.2)" height="200px" />: renderOutput()}
     </CustomWeatherContainer>
   );
 };

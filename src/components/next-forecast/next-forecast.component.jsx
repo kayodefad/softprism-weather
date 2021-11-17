@@ -1,6 +1,7 @@
 import React from "react";
 
 import LocationIcon from "../../assets/images/location-icon.svg";
+import Loader from "../loader/loader.component";
 import {
   NextForecastHeader,
   NextForecastContainer,
@@ -77,10 +78,6 @@ const NextForecast = ({ currentWeatherData, location, isLoading }) => {
             alt="Weather Icon"
           />
         </div>
-        <div>
-          <span>{parseTodayDate}</span>
-          <span>{currentWeatherData.current.weather[0].main}</span>
-        </div>
       </>
     );
   };
@@ -92,9 +89,25 @@ const NextForecast = ({ currentWeatherData, location, isLoading }) => {
         <div>Five Days</div>
       </NextForecastHeader>
       <NextForecastContainer>
-        <LeftDiv>{isLoading ? <p>Loading...</p> : renderLeftOutput()}</LeftDiv>
+        <LeftDiv>
+          {isLoading ? (
+            <Loader color="rgba(255, 255, 255, 0.2)" />
+          ) : (
+            renderLeftOutput()
+          )}
+        </LeftDiv>
         <RightDiv>
-          {isLoading ? <p>Loading...</p> : renderRightOutput()}
+          {isLoading ? (
+            <Loader color="rgba(255, 255, 255, 0.2)" />
+          ) : (
+            renderRightOutput()
+          )}
+          <div>
+            <span>{parseTodayDate}</span>
+            {currentWeatherData && (
+              <span>{currentWeatherData.current.weather[0].main}</span>
+            )}
+          </div>
         </RightDiv>
       </NextForecastContainer>
     </>

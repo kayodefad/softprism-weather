@@ -1,4 +1,5 @@
 import React from "react";
+import Loader from "../loader/loader.component";
 
 import {
   TodayForecastContainer,
@@ -55,7 +56,11 @@ const TodayForecast = ({ currentWeatherData, isLoading }) => {
     <TodayForecastContainer>
       <Title>Today's forecast</Title>
       <HourlyForecastContainer>
-        {isLoading ? <p>Loading...</p> : renderOutput()}
+        {isLoading ? (
+          <Loader color="rgba(255, 255, 255, 0.2)" />
+        ) : (
+          renderOutput()
+        )}
       </HourlyForecastContainer>
     </TodayForecastContainer>
   );

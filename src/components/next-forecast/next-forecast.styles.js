@@ -3,7 +3,7 @@ import Lagos from "../../assets/images/lagos.svg";
 
 const ButtonStyle = css`
   background: #8862fc;
-  border-radius: 10px;
+  border-radius: ${props => props.hello + ""};
   font-size: 0.8rem;
   padding: 0.8rem 1.7rem;
 `;
