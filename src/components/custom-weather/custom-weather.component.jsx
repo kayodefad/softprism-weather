@@ -8,7 +8,7 @@ import {
   TemperatureContainer,
   Location,
 } from "./custom-weather.styles";
-import { formatTime } from "../../utility-functions/format-time";
+import { formatTime } from "../../utils/format-time";
 
 const CustomWeather = ({ location, currentWeatherData, isLoading }) => {
   // Parsing the current date

@@ -9,7 +9,7 @@ import {
   Div,
   Image,
 } from "./today-forecast.styles";
-import { formatTime } from "../../utility-functions/format-time";
+import { formatTime } from "../../utils/format-time";
 
 const TodayForecast = ({ currentWeatherData, isLoading }) => {
   let hourlyData = [];
