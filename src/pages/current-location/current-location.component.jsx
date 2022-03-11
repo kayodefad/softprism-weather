@@ -44,7 +44,6 @@ const CurrentLocation = () => {
 
   return (
     <CurrentLocationContainer>
-      Hello
       <SearchBar disabled isLink location={location} />
       <TodayForecast
         currentWeatherData={currentWeatherData}
